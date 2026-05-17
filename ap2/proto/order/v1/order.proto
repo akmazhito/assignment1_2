@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package order.v1;
+
+option go_package = "github.com/akmazhito/assignment1_2/order/v1;orderv1";
+
+import "google/protobuf/timestamp.proto";
+
+service OrderService {
+  // Server-side streaming: push order status changes to subscriber in real time
+  rpc SubscribeToOrderUpdates(OrderRequest) returns (stream OrderStatusUpdate);
+}
+
+message OrderRequest {
+  string order_id = 1;
+}
+
+message OrderStatusUpdate {
+  string                    order_id   = 1;
+  string                    status     = 2;
+  google.protobuf.Timestamp updated_at = 3;
+}

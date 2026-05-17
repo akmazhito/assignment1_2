@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package payment.v1;
+
+option go_package = "github.com/akmazhito/assignment1_2/payment/v1;paymentv1";
+
+import "google/protobuf/timestamp.proto";
+
+service PaymentService {
+  rpc ProcessPayment(PaymentRequest) returns (PaymentResponse);
+  rpc GetPaymentByOrder(GetPaymentRequest) returns (PaymentResponse);
+}
+
+message PaymentRequest {
+  string order_id       = 1;
+  int64  amount         = 2;
+  string customer_email = 3;
+}
+
+message PaymentResponse {
+  string transaction_id = 1;
+  string status         = 2;
+}
+
+message GetPaymentRequest {
+  string order_id = 1;
+}
