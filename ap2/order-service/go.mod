@@ -1,4 +1,4 @@
-module github.com/akmazhito/assignment1_2
+module github.com/akmazhito/assignment1_2/ap2/order-service
 
 go 1.26.1
 
