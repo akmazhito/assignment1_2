@@ -39,7 +39,7 @@ Business rules (amount limits, status transitions, idempotency) live exclusively
 
 1. **Proto Repo** (`akmazhito/protos`) — contains `.proto` files only
 2. **GitHub Actions** — on push to `proto/**`, runs `protoc` and pushes `.pb.go` files to:
-3. **assignment1_2 Repo** (`akmazhito/assignment1_2`) — services import via `go get github.com/akmazhito/assignment1_2@v1.0.0`
+3. **assignment1_2/ap2 Repo** (`akmazhito/assignment1_2/ap2`) — services import via `go get github.com/akmazhito/assignment1_2/ap2@v1.0.0`
 
 This enforces contract versioning and prevents drift between services.
 
@@ -141,7 +141,7 @@ curl -X PATCH http://localhost:8080/orders/<id>/cancel
 curl http://localhost:8081/payments/<order_id>
 ```
 
-### Trigger DLQ (A3 bonus demo)
+### Trigger DLQ (A3 bonus assignment1_2)
 ```bash
 curl -X POST http://localhost:8081/payments \
   -H "Content-Type: application/json" \

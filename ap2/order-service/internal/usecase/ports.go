@@ -3,7 +3,7 @@ package usecase
 import (
 	"context"
 
-	"github.com/akmazhito/order-service/internal/domain"
+	"github.com/akmazhito/assignment1_2/ap2/order-service/internal/domain"
 )
 
 // OrderRepository is the port for order persistence.

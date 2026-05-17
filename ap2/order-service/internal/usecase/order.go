@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/akmazhito/order-service/internal/domain"
+	"github.com/akmazhito/assignment1_2/ap2/order-service/internal/domain"
 	"github.com/google/uuid"
 )
 

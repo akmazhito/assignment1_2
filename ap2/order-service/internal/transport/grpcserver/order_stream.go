@@ -11,8 +11,8 @@ import (
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	pb "github.com/akmazhito/assignment1_2/order/v1"
-	"github.com/akmazhito/order-service/internal/domain"
+	"github.com/akmazhito/assignment1_2/ap2/order-service/internal/domain"
+	pb "github.com/akmazhito/assignment1_2/ap2/proto/order/v1"
 )
 
 // OrderGRPCServer implements pb.OrderServiceServer for streaming order updates.

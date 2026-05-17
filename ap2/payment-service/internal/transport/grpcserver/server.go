@@ -9,7 +9,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	pb "github.com/akmazhito/assignment1_2/payment/v1"
+	pb "github.com/akmazhito/assignment1_2/ap2/payment/v1"
 	"github.com/akmazhito/payment-service/internal/domain"
 	"github.com/akmazhito/payment-service/internal/usecase"
 )

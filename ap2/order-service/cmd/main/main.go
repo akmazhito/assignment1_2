@@ -16,11 +16,11 @@ import (
 	_ "github.com/lib/pq"
 	"google.golang.org/grpc"
 
-	pb "github.com/akmazhito/assignment1_2/order/v1"
-	"github.com/akmazhito/assignment1_2/order-service/internal/repository"
-	grpcserver "github.com/akmazhito/order-service/internal/transport/grpcserver"
-	handler "github.com/akmazhito/order-service/internal/transport/http"
-	"github.com/akmazhito/order-service/internal/usecase"
+	"github.com/akmazhito/assignment1_2/ap2/order-service/internal/repository"
+	grpcserver "github.com/akmazhito/assignment1_2/ap2/order-service/internal/transport/grpcserver"
+	handler "github.com/akmazhito/assignment1_2/ap2/order-service/internal/transport/http"
+	"github.com/akmazhito/assignment1_2/ap2/order-service/internal/usecase"
+	pb "github.com/akmazhito/assignment1_2/ap2/proto/order/v1"
 )
 
 func main() {
