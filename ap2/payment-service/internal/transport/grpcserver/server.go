@@ -9,9 +9,9 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	pb "github.com/akmazhito/assignment1_2/ap2/payment/v1"
-	"github.com/akmazhito/payment-service/internal/domain"
-	"github.com/akmazhito/payment-service/internal/usecase"
+	"github.com/akmazhito/assignment1_2/ap2/payment-service/internal/domain"
+	"github.com/akmazhito/assignment1_2/ap2/payment-service/internal/usecase"
+	pb "github.com/akmazhito/assignment1_2/ap2/proto/payment/v1"
 )
 
 // PaymentGRPCServer implements pb.PaymentServiceServer.

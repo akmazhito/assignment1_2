@@ -3,7 +3,7 @@ package usecase
 import (
 	"context"
 
-	"github.com/akmazhito/payment-service/internal/domain"
+	"github.com/akmazhito/assignment1_2/ap2/payment-service/internal/domain"
 )
 
 // PaymentRepository is the persistence port.

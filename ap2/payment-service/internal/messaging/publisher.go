@@ -7,7 +7,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/akmazhito/payment-service/internal/usecase"
+	"github.com/akmazhito/assignment1_2/ap2/payment-service/internal/usecase"
 	amqp "github.com/rabbitmq/amqp091-go"
 )
 

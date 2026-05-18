@@ -4,8 +4,8 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/akmazhito/payment-service/internal/domain"
-	"github.com/akmazhito/payment-service/internal/usecase"
+	"github.com/akmazhito/assignment1_2/ap2/payment-service/internal/domain"
+	"github.com/akmazhito/assignment1_2/ap2/payment-service/internal/usecase"
 	"github.com/gin-gonic/gin"
 )
 
