@@ -10,7 +10,7 @@ import (
 	"google.golang.org/grpc/status"
 
 	"github.com/akmazhito/assignment1_2/ap2/order-service/internal/domain"
-	pb "github.com/akmazhito/assignment1_2/ap2/proto/payment/v1"
+	pb "github.com/akmazhito/assignment1_2/ap2/payment/v1"
 )
 
 // GRPCPaymentClient wraps a assignment1_2 gRPC stub and satisfies the PaymentClient port.
