@@ -14,11 +14,11 @@ import (
 	"github.com/gin-gonic/gin"
 	_ "github.com/lib/pq"
 
-	"github.com/akmazhito/assignment1_2/payment-service/internal/messaging"
-	"github.com/akmazhito/assignment1_2/payment-service/internal/repository"
-	grpcserver "github.com/akmazhito/assignment1_2/payment-service/internal/transport/grpcserver"
-	handler "github.com/akmazhito/assignment1_2/payment-service/internal/transport/http"
-	"github.com/akmazhito/assignment1_2/payment-service/internal/usecase"
+	"github.com/akmazhito/assignment1_2/ap2/payment-service/internal/messaging"
+	"github.com/akmazhito/assignment1_2/ap2/payment-service/internal/repository"
+	grpcserver "github.com/akmazhito/assignment1_2/ap2/payment-service/internal/transport/grpcserver"
+	handler "github.com/akmazhito/assignment1_2/ap2/payment-service/internal/transport/http"
+	"github.com/akmazhito/assignment1_2/ap2/payment-service/internal/usecase"
 )
 
 func main() {

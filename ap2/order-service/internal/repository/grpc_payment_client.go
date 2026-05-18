@@ -10,12 +10,12 @@ import (
 	"google.golang.org/grpc/status"
 
 	"github.com/akmazhito/assignment1_2/ap2/order-service/internal/domain"
-	pb "github.com/akmazhito/assignment1_2/ap2/payment/v1"
+	paymentv1 "github.com/akmazhito/assignment1_2/ap2/proto/payment/v1"
 )
 
 // GRPCPaymentClient wraps a assignment1_2 gRPC stub and satisfies the PaymentClient port.
 type GRPCPaymentClient struct {
-	client pb.PaymentServiceClient
+	client paymentv1.PaymentServiceClient
 }
 
 func NewGRPCPaymentClient(addr string) (*GRPCPaymentClient, error) {
@@ -26,11 +26,11 @@ func NewGRPCPaymentClient(addr string) (*GRPCPaymentClient, error) {
 	if err != nil {
 		return nil, fmt.Errorf("connecting to payment service: %w", err)
 	}
-	return &GRPCPaymentClient{client: pb.NewPaymentServiceClient(conn)}, nil
+	return &GRPCPaymentClient{client: paymentv1.NewPaymentServiceClient(conn)}, nil
 }
 
 func (c *GRPCPaymentClient) ProcessPayment(ctx context.Context, orderID string, amount int64) (string, string, error) {
-	resp, err := c.client.ProcessPayment(ctx, &pb.PaymentRequest{
+	resp, err := c.client.ProcessPayment(ctx, &paymentv1.PaymentRequest{
 		OrderId: orderID,
 		Amount:  amount,
 	})

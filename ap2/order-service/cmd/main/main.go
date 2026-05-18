@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"database/sql"
-	"fmt"
+	
 	"log"
 	"net"
 	"net/http"
@@ -20,7 +20,7 @@ import (
 	grpcserver "github.com/akmazhito/assignment1_2/ap2/order-service/internal/transport/grpcserver"
 	handler "github.com/akmazhito/assignment1_2/ap2/order-service/internal/transport/http"
 	"github.com/akmazhito/assignment1_2/ap2/order-service/internal/usecase"
-	pb "github.com/akmazhito/assignment1_2/ap2/proto/order/v1"
+	
 )
 
 func main() {
@@ -146,5 +146,4 @@ func getEnv(key, fallback string) string {
 	return fallback
 }
 
-var _ = fmt.Sprintf                  // avoid unused import
-var _ = pb.File_order_v1_order_proto // ensure pb is linked
+

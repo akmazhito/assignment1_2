@@ -11,12 +11,12 @@ import (
 
 	"github.com/akmazhito/assignment1_2/ap2/payment-service/internal/domain"
 	"github.com/akmazhito/assignment1_2/ap2/payment-service/internal/usecase"
-	pb "github.com/akmazhito/assignment1_2/ap2/proto/payment/v1"
+	paymentv1 "github.com/akmazhito/assignment1_2/ap2/proto/payment/v1"
 )
 
-// PaymentGRPCServer implements pb.PaymentServiceServer.
+// PaymentGRPCServer implements paymentv1.PaymentServiceServer.
 type PaymentGRPCServer struct {
-	pb.UnimplementedPaymentServiceServer
+	paymentv1.UnimplementedPaymentServiceServer
 	uc *usecase.PaymentUseCase
 }
 
@@ -24,7 +24,7 @@ func NewPaymentGRPCServer(uc *usecase.PaymentUseCase) *PaymentGRPCServer {
 	return &PaymentGRPCServer{uc: uc}
 }
 
-func (s *PaymentGRPCServer) ProcessPayment(ctx context.Context, req *pb.PaymentRequest) (*pb.PaymentResponse, error) {
+func (s *PaymentGRPCServer) ProcessPayment(ctx context.Context, req *paymentv1.PaymentRequest) (*paymentv1.PaymentResponse, error) {
 	// Business rule: amount must be positive
 	if req.Amount <= 0 {
 		return nil, status.Errorf(codes.InvalidArgument, "amount must be > 0")
@@ -35,13 +35,13 @@ func (s *PaymentGRPCServer) ProcessPayment(ctx context.Context, req *pb.PaymentR
 		return nil, status.Errorf(codes.Internal, "processing payment: %v", err)
 	}
 
-	return &pb.PaymentResponse{
+	return &paymentv1.PaymentResponse{
 		TransactionId: payment.TransactionID,
 		Status:        string(payment.Status),
 	}, nil
 }
 
-func (s *PaymentGRPCServer) GetPaymentByOrder(ctx context.Context, req *pb.GetPaymentRequest) (*pb.PaymentResponse, error) {
+func (s *PaymentGRPCServer) GetPaymentByOrder(ctx context.Context, req *paymentv1.GetPaymentRequest) (*paymentv1.PaymentResponse, error) {
 	payment, err := s.uc.GetByOrderID(ctx, req.OrderId)
 	if err != nil {
 		if err == domain.ErrPaymentNotFound {
@@ -49,7 +49,7 @@ func (s *PaymentGRPCServer) GetPaymentByOrder(ctx context.Context, req *pb.GetPa
 		}
 		return nil, status.Errorf(codes.Internal, "fetching payment: %v", err)
 	}
-	return &pb.PaymentResponse{
+	return &paymentv1.PaymentResponse{
 		TransactionId: payment.TransactionID,
 		Status:        string(payment.Status),
 	}, nil
@@ -81,6 +81,6 @@ func NewGRPCServer(uc *usecase.PaymentUseCase) *grpc.Server {
 	srv := grpc.NewServer(
 		grpc.UnaryInterceptor(LoggingInterceptor),
 	)
-	pb.RegisterPaymentServiceServer(srv, NewPaymentGRPCServer(uc))
+	paymentv1.RegisterPaymentServiceServer(srv, NewPaymentGRPCServer(uc))
 	return srv
 }
